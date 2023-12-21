@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="IS_385_E_DoAnNhom_Nhom1.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="assets/css/giohang.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="assets/css/home_css.css" rel="stylesheet" />
+    <link href="assets/css/detail.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" /> 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="Container">
+        <form id="form1" runat="server">
+            <header class="header-container">
+                <div class="header-nav">
+                    <div class="header-logo">
+                        <img class="header-logo-img" src="logo.png" alt="Alternate Text" />
+                    </div>
+                    <div class="div-search" style="margin-left: 106px;">
+                        <asp:TextBox ID="txtsearch" runat="server" placeholder="Bạn cần tìm gì"></asp:TextBox>
+                        <div class="div-searchbtn">
+                            <asp:ImageButton ID="searchbtn" runat="server" ImageUrl="./magnifying-glass.png" OnClick="searchbtn_Click"/>
+                        </div>
+                    </div>
+                    <div class="list-icon" style="display:flex;">
+                        <a href="giohang.aspx" class="icon-link"><i class="fa-sharp fa-solid fa-cart-shopping nav-icon"></i></a>
+                        <a href="Login_Page.aspx" class="icon-link"><i class="fa-solid fa-user nav-icon"></i></a>
+                        <asp:Label style="font-size:14px; font-weight:600; margin-left:4px; padding:8px;" ID="lbusername" runat="server" Text=""></asp:Label>
+                        <asp:ImageButton ID="logoutbtn" style="display:none;width:26px; margin: 0 16px;color: #000;" runat="server" ImageUrl="~/assets/img/logout.png" OnClick="ImageButton1_Click"/>
+                    </div>
+                </div>
+                <div class="menu-tab">
+                    <div class="catalog col-md-2">
+                        <i class="fa-solid fa-bars bar-icon"></i>
+                        <div class="catalog-title">Danh mục sản phẩm</div>
+                        <i class="fa-solid fa-chevron-down down-icon"></i>
+                    </div>
+
+                    <div class="tab-list-container col-md-10">
+                        <ul class="menu-tab-list">
+                            <li class="menu-item">
+                                <a href="home_content.aspx" class="item-link">
+                                    <i class="fa-solid fa-house"></i>
+                                    Trang chủ
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="item-link">
+                                    <i class="fa-solid fa-car"></i>
+                                    Vận chuyển
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ThongTinThanhToan.aspx" class="item-link">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                    Phương thức thanh toán
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="Doi_tra_va_bao_hanh.aspx" class="item-link">
+                                    <i class="fa-solid fa-gear"></i>
+                                    Đổi trả và bảo hành
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="Lienhe.aspx" class="item-link">
+                                    <i class="fa-regular fa-id-card"></i>
+                                    Liên hệ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div class="body-container">
+                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                    </asp:ContentPlaceHolder>
+               
+            </div>
+        </form>
+    </div>
+</body>
+</html>
