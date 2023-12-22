@@ -25,7 +25,8 @@ namespace IS_385_E_DoAnNhom_Nhom1
             }
             else
             {
-
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Bạn đã đặt hàng thành công');", true);
+                //Response.Redirect("home_content.aspx");
                 string tengoi = txt_TenGoi.Text;
                 string sdt = txt_sodienthoai.Text;
                 string email = txtEmail.Text;
@@ -36,11 +37,13 @@ namespace IS_385_E_DoAnNhom_Nhom1
                 string ghichu = txtGhiChu.Text;
 
                 string sql = "insert into Thanhtoan (tendn, tengoi, email, tinh, xaphuong, quanhuyen, diachi, ghichu, sdt) values('" + tendn + "',N'" + tengoi + "','"
-                    + email + "',N'" + tinh + "',N'" + xaphuong + "',N'" + quanhuyen + "',N'"
-                    + diachi + "',N'" + ghichu + "','" + sdt + "')";
+                   + email + "',N'" + tinh + "',N'" + xaphuong + "',N'" + quanhuyen + "',N'"
+                   + diachi + "',N'" + ghichu + "','" + sdt + "')";
                 int row = kn.UpdateData(sql);
                 if (row > 0)
                 {
+                    string deleteGioHangSql = "DELETE FROM giohang WHERE Username = '" + tendn + "'";
+                    kn.UpdateData(deleteGioHangSql);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Bạn đã đặt hàng thành công');", true);
                     Response.Redirect("home_content.aspx");
                 }
